@@ -1,8 +1,26 @@
-import chalk from "chalk";
+import { Signale } from "signale";
 
-export const logger = {
-  info: (msg: string) => console.log(chalk.blue("[INFO]"), msg),
-  warn: (msg: string) => console.warn(chalk.yellow("[WARN]"), msg),
-  error: (...msg: any[]) => console.error(chalk.red("[ERROR]"), ...msg),
-  success: (msg: string) => console.log(chalk.green("[SUCCESS]"), msg),
-};
+export const logger = new Signale({
+  types: {
+    success: {
+      badge: "✅",
+      color: "green",
+      label: "success",
+    },
+    error: {
+      badge: "❌",
+      color: "red",
+      label: "error",
+    },
+    warn: {
+      badge: "⚠️",
+      color: "yellow",
+      label: "warn",
+    },
+    info: {
+      badge: "ℹ️",
+      color: "blue",
+      label: "info",
+    },
+  },
+});
